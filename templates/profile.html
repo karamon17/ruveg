@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Профиль пользователя  
+{% endblock %}
+
+{% block main %}
+    <h1 align="center">Профиль пользователя {{user}}</h1>
+    <h4 align="center"> Здесь ваши избранные рецепты: </h4>
+    <div class="my">
+        <br>
+    <table align="center" bgcolor="WhiteSmoke" cellpadding="10"    >
+            {% for i in favorite %}
+            <tr>
+                <td width="600">
+                    <a href="/{{ i['id'] }}" ><img  width="300" height="165"src="{{ i['ref_pic'] }}"> 
+                    {{ i['title'] }} </a>
+                </td>
+                <td width="300" align="right">
+                    <a href="/favorite_del{{ i['id'] }}" class="text-warning bg-dark">Убрать из избранных</a>
+                </td>
+            </tr>
+            {% endfor %}
+    </table> 
+    </div>
+{% endblock %}

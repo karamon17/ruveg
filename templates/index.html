@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Веганские рецепты   
+{% endblock %}
+
+{% block main %}
+    <h1 align="center">Агрегатор веганских рецептов</h1>
+    <h4 align="center"> У нас на сайте вы обязательно найдете блюдо, которое вам понравится! </h4>
+    <div class="my">
+        <table align="center">
+            <tr> 
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 my" action="/" method="post" > 
+                <td >
+                    <input type="text" class="form-control form-control-dark text-bg-dark" placeholder="Поиск по рецепту или ингридиенту..." name="ingridient" id="ingridient">
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-warning my" >Найти</button>
+                </td>
+                </form>
+            </tr>
+        </table> 
+    </div>
+    <div class="my">
+        <br>
+        <table align="center" bgcolor="WhiteSmoke">
+        {% for i in range(0,dlina,3) %} 
+            <tr valign=top align="center">
+            <td width="300">
+                <a href="/{{ reciept[i]['id'] }}"><img  width="300" height="165"src="{{ reciept[i]['ref_pic'] }}"> 
+                <br>{{ reciept[i]['title'] }} </a>
+            </td>
+            <td width="300">
+                {% if i+1 < dlina %}
+                    <a href="/{{ reciept[i+1]['id'] }}"><img  width="300" height="165"src="{{ reciept[i+1]['ref_pic'] }}"> 
+                        <br>{{ reciept[i+1]['title'] }} </a>
+                 {% endif %}   
+            </td>
+            <td width="300">
+                {% if i+2 < dlina %}
+                    <a href="/{{ reciept[i+2]['id'] }}"><img  width="300" height="165"src="{{ reciept[i+2]['ref_pic'] }}"> 
+                        <br>{{ reciept[i+2]['title'] }} </a>
+                {% endif %} 
+            </td>
+            </tr>
+         {% endfor %}
+        </table> 
+    </div>
+{% endblock %}

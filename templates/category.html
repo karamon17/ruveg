@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ category }} 
+{% endblock %}
+
+{% block main %}
+<h1 align="center"> {{ category }}</h1>
+<div class="my">
+    <br>
+<table align="center" bgcolor="WhiteSmoke">
+    {% for i in range(0,dlina,3) %} 
+        <tr valign=top align="center">
+        <td width="300">
+            <a href="/{{ reciept[i]['id'] }}"><img  width="300" height="165"src="{{ reciept[i]['ref_pic'] }}"> 
+                <br>{{ reciept[i]['title'] }} </a>
+        </td>
+        <td width="300">
+            {% if i+1 < dlina %}
+                <a href="/{{ reciept[i+1]['id'] }}"><img  width="300" height="165"src="{{ reciept[i+1]['ref_pic'] }}"> 
+                    <br>{{ reciept[i+1]['title'] }} </a>
+            {% endif %}   
+        </td>
+        <td width="300">
+            {% if i+2 < dlina %}
+                <a href="/{{ reciept[i+2]['id'] }}"><img  width="300" height="165"src="{{ reciept[i+2]['ref_pic'] }}"> 
+                    <br>{{ reciept[i+2]['title'] }} </a>
+            {% endif %} 
+        </td>
+        </tr>
+    {% endfor %}
+</table> 
+</div>
+{% endblock %}

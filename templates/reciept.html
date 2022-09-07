@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Веганские рецепты   
+{% endblock %}
+
+{% block main %}
+<h1 align="center">{{ reciept['title'] }}</h1>
+{% if session["userLogged"] %}
+    <a href="/favorite{{ id }}" class="text-warning bg-dark"><h4 align="center"> Добавить в избранные </h4> </a>
+{% else %}
+    <a href="/login" class="text-warning bg-dark"><h4 align="center"> Добавить в избранные </h4> </a>
+{% endif %}
+    <p></p>
+<table align="center">
+    <tr valign=top>
+        <td>
+            <!-- {{ reciept['ref'], reciept['title'], reciept['ingridients'], reciept['recipe'], reciept['ref_pic']}} -->
+             <iframe width="720" height="406" src="https://www.youtube.com/embed/{{reciept['ref']}}" title="{{reciept['title']}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </td>
+        <td>
+            {% if reciept['ingridients'] != None %} 
+                <h4>Ингредиенты</h4>
+                <p></p>
+                    {{ reciept['ingridients'] | safe }}
+            {% endif %} 
+        </td>
+    </tr>
+</table>
+    <div class="my">
+    {% if reciept['recipe'] != None %}
+        <h4>Рекомендации</h4>
+        <p></p>
+        {{ reciept['recipe'] | safe}}   
+    {% endif %}
+    <p></p>
+        Автор рецепта: <a href="https://www.youtube.com/watch?v={{reciept['ref']}}"  target="_blank">{{reciept['author']}}</a>
+    <p></p>
+    <b>Понравился автор? Посмотрите <a href="/{{reciept['author']}}">его другие рецепты на нашем сайте.</a> </b>
+    </div>
+
+
+{% endblock %}

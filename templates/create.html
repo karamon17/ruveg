@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Добавление рецепта   
+{% endblock %}
+
+{% block main %}
+    <div class="my">
+      <h4 >Добавление рецепта в БД </h4>
+      {% for msg in get_flashed_messages() %}
+      <div class="alert alert-warning"> {{msg}} </div>
+      {% endfor %}
+    <form method="POST">
+        <input type="text" class="form-control" name="title" id="title" placeholder="Название рецепта"> <br>
+        <input type="text" class="form-control" name="ref" id="ref" placeholder="ID видео на ютуб"> <br>
+        <input type="text" class="form-control" name="ingridients" id="ingridients" placeholder="Ингредиенты> <br>
+        <input type="text" class="form-control" name="recipe" id="recipe" placeholder="Рецепт"> <br>
+        <input type="text" class="form-control" name="ref_pic" id="ref_pic" placeholder="Ссылка на превью"> <br>
+        <button class="btn btn-warning" type="submit">Добавить рецепт</button>  
+    </form>
+</div>
+{% endblock %}

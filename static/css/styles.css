@@ -1,0 +1,35 @@
+body{
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+.green{
+    color: green;
+}
+
+h4, h1, h5{
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+.my{
+    max-width: 1100px;
+    border-top: 100px;
+    margin: auto;
+    text-align: left;
+    
+}
+
+table{
+    width: 1000px;
+}
+
+iframe{
+    margin: auto;
+}
+
+.delbor{
+    margin-bottom: 0px ;
+}

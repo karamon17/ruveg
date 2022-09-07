@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Веганские рецепты   
+{% endblock %}
+
+{% block main %}
+<div class="col-md-10 mx-auto col-lg-5">
+    <form action="/login" method="post" class="p-4 p-md-5 border rounded-3 bg-light" >
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+        <label for="email">E-mail</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="pas" name="pas" placeholder="Пароль">
+        <label for="pas">Пароль</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+      <hr class="my-4">
+      <p align="center" class="delbor">Нет аккаунта? <a href="/register"> Зарегистрироваться </a></p>
+    </form>
+</div>
+
+{% endblock %}

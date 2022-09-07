@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ Найденные рецепты 
+{% endblock %}
+
+{% block main %}
+<h1 align="center">Результаты поиска: {{ ingridient0 }}</h1>
+<div class="my">
+    <br>
+    <!--{{ reciept }}-->
+    {% if reciept[0] == Null or ingridient0 == '' %}
+        <h4 align="center">Ничего не найдено</h4>
+    {% else %}
+<table align="center">
+    {% for i in range(0,dlina,3) %} 
+        <tr valign=top align="center">
+        <td width="300">
+            <a href="/{{ reciept[i]['id'] }}"><img  width="300" height="165"src="{{ reciept[i]['ref_pic'] }}"> 
+            {{ reciept[i]['title'] }} </a>
+        </td>
+        <td width="300">
+            {% if i+1 < dlina %}
+                <a href="/{{ reciept[i+1]['id'] }}"><img  width="300" height="165"src="{{ reciept[i+1]['ref_pic'] }}"> 
+                {{ reciept[i+1]['title'] }} </a>
+            {% endif %}   
+        </td>
+        <td width="300">
+            {% if i+2 < dlina %}
+                <a href="/{{ reciept[i+2]['id'] }}"><img  width="300" height="165"src="{{ reciept[i+2]['ref_pic'] }}"> 
+                {{ reciept[i+2]['title'] }} </a>
+            {% endif %} 
+        </td>
+        </tr>
+    {% endfor %}
+</table> 
+</div>
+    {% endif %}
+{% endblock %}
